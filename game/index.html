@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="Style/Style.css">
+	<title>game</title>
+
+	<script src="libraries/p5.js"></script>
+	<script src="libraries/p5.dom.js"></script>
+	<!-- <script src="libraries/p5.sound.js"></script> -->
+	<script src="js/game.js"></script>
+	<script src="js/sketch.js"></script>
+</head>
+
+<body>
+	<div class="all">
+
+		<div class="menu">
+			<button type="reset" onclick="document.location.assign('/')">new Game</button>
+			<button onclick="start.reset();start.solver()">show solution</button>
+			<button onclick="start.reset()">Reset Grid</button>
+			<button onClick="aboutUs.style('opacity:1;left:0;')">About us</button>
+			<div class="aboutUs">
+				<div onClick="aboutUs.style('opacity:0;left:-300%')">X</div>
+				<h1>Sudoku Game:</h1>
+				<p>this is a free source game source code is at : </p>
+				<h5>https://github.com/titanRoyal/sudoku</h5>
+			</div>
+		</div>
+		<div class="game">
+			<div class="bigcells">
+				<div class="smallcells 0_0"></div>
+				<div class="smallcells 0_1"></div>
+				<div class="smallcells 0_2"></div>
+
+				<div class="smallcells 1_0"></div>
+				<div class="smallcells 1_1"></div>
+				<div class="smallcells 1_2"></div>
+				<div class="smallcells 2_0"></div>
+				<div class="smallcells 2_1"></div>
+				<div class="smallcells 2_2"></div>
+			</div>
+			<div class="bigcells">
+				<div class="smallcells 0_3"></div>
+				<div class="smallcells 0_4"></div>
+				<div class="smallcells 0_5"></div>
+				<div class="smallcells 1_3"></div>
+				<div class="smallcells 1_4"></div>
+				<div class="smallcells 1_5"></div>
+				<div class="smallcells 2_3"></div>
+				<div class="smallcells 2_4"></div>
+				<div class="smallcells 2_5"></div>
+			</div>
+			<div class="bigcells">
+				<div class="smallcells 0_6"></div>
+				<div class="smallcells 0_7"></div>
+				<div class="smallcells 0_8"></div>
+				<div class="smallcells 1_6"></div>
+				<div class="smallcells 1_7"></div>
+				<div class="smallcells 1_8"></div>
+				<div class="smallcells 2_6"></div>
+				<div class="smallcells 2_7"></div>
+				<div class="smallcells 2_8"></div>
+			</div>
+			<div class="bigcells">
+				<div class="smallcells 3_0"></div>
+				<div class="smallcells 3_1"></div>
+				<div class="smallcells 3_2"></div>
+				<div class="smallcells 4_0"></div>
+				<div class="smallcells 4_1"></div>
+				<div class="smallcells 4_2"></div>
+				<div class="smallcells 5_0"></div>
+				<div class="smallcells 5_1"></div>
+				<div class="smallcells 5_2"></div>
+			</div>
+			<div class="bigcells">
+				<div class="smallcells 3_3"></div>
+				<div class="smallcells 3_4"></div>
+				<div class="smallcells 3_5"></div>
+				<div class="smallcells 4_3"></div>
+				<div class="smallcells 4_4"></div>
+				<div class="smallcells 4_5"></div>
+				<div class="smallcells 5_3"></div>
+				<div class="smallcells 5_4"></div>
+				<div class="smallcells 5_5"></div>
+			</div>
+			<div class="bigcells">
+				<div class="smallcells 3_6"></div>
+				<div class="smallcells 3_7"></div>
+				<div class="smallcells 3_8"></div>
+				<div class="smallcells 4_6"></div>
+				<div class="smallcells 4_7"></div>
+				<div class="smallcells 4_8"></div>
+				<div class="smallcells 5_6"></div>
+				<div class="smallcells 5_7"></div>
+				<div class="smallcells 5_8"></div>
+			</div>
+			<div class="bigcells">
+				<div class="smallcells 6_0"></div>
+				<div class="smallcells 6_1"></div>
+				<div class="smallcells 6_2"></div>
+				<div class="smallcells 7_0"></div>
+				<div class="smallcells 7_1"></div>
+				<div class="smallcells 7_2"></div>
+				<div class="smallcells 8_0"></div>
+				<div class="smallcells 8_1"></div>
+				<div class="smallcells 8_2"></div>
+			</div>
+			<div class="bigcells">
+				<div class="smallcells 6_3"></div>
+				<div class="smallcells 6_4"></div>
+				<div class="smallcells 6_5"></div>
+				<div class="smallcells 7_3"></div>
+				<div class="smallcells 7_4"></div>
+				<div class="smallcells 7_5"></div>
+				<div class="smallcells 8_3"></div>
+				<div class="smallcells 8_4"></div>
+				<div class="smallcells 8_5"></div>
+			</div>
+			<div class="bigcells">
+				<div class="smallcells 6_6"></div>
+				<div class="smallcells 6_7"></div>
+				<div class="smallcells 6_8"></div>
+				<div class="smallcells 7_6"></div>
+				<div class="smallcells 7_7"></div>
+				<div class="smallcells 7_8"></div>
+				<div class="smallcells 8_6"></div>
+				<div class="smallcells 8_7"></div>
+				<div class="smallcells 8_8"></div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
