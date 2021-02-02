@@ -1,5 +1,7 @@
 let express = require("express")
 
+require("dotenv/config")
+
 let fetch = require("node-fetch")
 
 let app = express()
@@ -17,13 +19,10 @@ app.get("/", async (req, res) => {
     try {
 
         let r = await fetch("https://online-sudoku.p.rapidapi.com/random", {
-            headers: {
-                "x-rapidapi-key": "a7617c5662msh1a97c78f5639131p1de291jsnb945ff5a58b8",
-                "x-rapidapi-host": "online-sudoku.p.rapidapi.com",
-                "useQueryString": true
-            }
+            headers: JSON.parse(process.env.key)
         })
         let resu = await r.json();
+        console.log(resu)
         resu.items = (() => {
             let arr = [];
             for (let i = 0; i < 9; i++) {
@@ -35,6 +34,7 @@ app.get("/", async (req, res) => {
         res.cookie("grid", rr);
     } catch (error) {
         res.cookie("grid", backup.join("_"));
+        console.log(error)
     }
     res.redirect("/game")
 });

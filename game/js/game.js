@@ -6,6 +6,9 @@ class game {
         this.permanentCount = 0;
         this.permanent = []
         this.State = []
+        this.row;
+        this.col;
+        this.bigcells
         for (let i = 0; i < 9; i++) {
             this.grid[i] = []
             this.permanent[i] = []
@@ -158,7 +161,7 @@ class game {
             let i = Math.floor(ii / 9);
             let i1 = ii % 9;
 
-            if (!this.permanent[i][i1] && this.grid[i][i1].elt.innerText == "") {
+            if (!this.permanent[i][i1] && !this.grid[i][i1].elt.innerText) {
                 let arr = new Array(9).fill().map((data, index) => index + 1);
                 for (let i3 = 0; i3 < 9; i3++) {
                     let val = this.grid[i3][i1].elt.innerText * 1;
@@ -188,7 +191,7 @@ class game {
                     this.set(i, i1, temp[0]);
                 } else if (temp.length == 0) {
                     this.newState();
-                    return false;
+                    return;
                 }
                 dir[i + "_" + i1] = temp;
             }
@@ -243,6 +246,45 @@ class game {
         console.timeEnd("end")
         console.log(times)
         this.update();
+    }
+    getGrid(i, j) {
+        return [Math.floor(i / 3), Math.floor(j / 3)]
+    }
+    init() {
+        this.bigcells = [
+            [{}, {}, {}],
+            [{}, {}, {}],
+            [{}, {}, {}]
+        ]
+        this.row = [{}, {}, {}, {}, {}, {}, {}, {}, {}]
+        this.col = [{}, {}, {}, {}, {}, {}, {}, {}, {}]
+        for (let i = 0; i < 9; i++) {
+            for (let i1 = 0; i1 < 9; i1++) {
+                if (this.grid[i][i1].elt.innerText != "") {
+                    let current = this.getGrid(i, i1);
+                    let val = this.grid[i][i1].elt.innerText * 1;
+                    this.row[i][val] = i1;
+                    this.col[i1][val] = i;
+                    this.bigcells[current[0]][current[1]][val] = i + "_" + i1;
+
+                }
+            }
+
+        }
+    }
+    calcAgain() {
+        this.init()
+        let sum;
+        let dir = {}
+        for (let i = 1; i < 10; i++) {
+            sum = 0;
+            for (let i1 = 0; i1 < 9; i1++) {
+                sum += (this.col[i1][i] + 1) / i;
+            }
+            dir[i] = sum;
+        }
+        console.log(dir)
+        return dir;
     }
 
 }
